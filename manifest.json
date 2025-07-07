@@ -1,0 +1,26 @@
+{
+  "name": "Cognitio + Helpdesk",
+  "short_name": "Helpdesk",
+  "description": "Empowering communities to integrate mental health into primary healthcare through accessible, compassionate support.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en",
+  "categories": ["health", "wellness", "productivity"],
+  "related_applications": [],
+  "scope": "/"
+}
