@@ -1,0 +1,142 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@400&family=Roboto+Condensed:wght@400&display=swap');
+
+:root {
+  /* Color Palette */
+  --primary-color: #6A0DAD;   /* Royal Purple */
+  --accent-color: #FFD700;   /* Golden Yellow */
+  --background-color: #FFFFFF; /* White */
+  --text-color: #000000;     /* Default Text Color */
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Subtitles */
+.subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+/* Paragraphs */
+p {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Buttons */
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Primary Button (Royal Purple) */
+.button-primary {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.button-primary:hover {
+  background-color: #5a0099; /* Darker Purple */
+}
+
+/* Accent Button (Golden Yellow) */
+.button-accent {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+}
+
+.button-accent:hover {
+  background-color: #e6c200; /* Lighter Yellow */
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+section {
+  padding: 2rem 0;
+}
+
+/* Cards */
+.card {
+  background-color: var(--background-color);
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Error Message (Golden Yellow) */
+.error-message {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
