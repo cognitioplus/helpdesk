@@ -1,26 +1,22 @@
 {
-  "name": "Cognitio + Helpdesk",
-  "short_name": "Helpdesk",
-  "description": "Empowering communities to integrate mental health into primary healthcare through accessible, compassionate support.",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#f9fafb",
-  "theme_color": "#2563eb",
-  "orientation": "portrait",
+  "short_name": "Cognitio+",
+  "name": "Cognitio+ Helpdesk",
   "icons": [
     {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
-  "lang": "en",
-  "categories": ["health", "wellness", "productivity"],
-  "related_applications": [],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#6A0DAD",
+  "description": "Cognitio+ Helpdesk - Empowering communities with mental health and substance abuse support.",
   "scope": "/"
 }
