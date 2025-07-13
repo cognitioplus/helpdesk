@@ -1,4 +1,4 @@
-# Cognitio+ Customer Support
+# Cognitio+ Blog
 
 A modern, responsive helpdesk application for **Cognitio-Plus**, designed to empower communities in integrating mental health and substance abuse support into primary healthcare.
 
