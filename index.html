@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cognitio+ Support PWA</title>
   <meta name="description" content="Cognitio+ Helpdesk Progressive Web App">
+  <meta property="og:title" content="Cognitio+ Helpdesk">
+  <meta property="og:description" content="Helpdesk Progressive Web App">
+  <meta property="og:image" content="icons/icon-192.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css" preload>
+  <link rel="preload" href="icons/icon-192.png" as="image">
   <!-- PWA icons -->
   <link rel="icon" sizes="192x192" href="icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png">
@@ -16,18 +21,18 @@
 <body>
   <!-- Header -->
   <header>
-    <img src="icons/icon-192.png" alt="Cognitio+ Helpdesk Logo" class="logo">
-    <h1>Cognitio+ Customer Suppport</h1>
-    <nav>
-      <a href="#" class="active" id="home-link">Home</a>
-      <a href="#" id="posts-link">Posts</a>
-      <a href="#" id="comments-link">Comments</a>
-      <a href="#" id="about-link">About</a>
+    <img src="icons/icon-192.png" alt="Cognitio+ Helpdesk Logo representing customer support" class="logo" loading="lazy">
+    <h1>Cognitio+ Customer Support</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="#" class="active" id="home-link" aria-label="Go to Home page">Home</a>
+      <a href="#" id="posts-link" aria-label="View Posts">Posts</a>
+      <a href="#" id="comments-link" aria-label="View Comments">Comments</a>
+      <a href="#" id="about-link" aria-label="About Cognitio+ Helpdesk">About</a>
     </nav>
   </header>
 
   <!-- Main Content -->
-  <main id="main-content">
+  <main id="main-content" role="main">
     <section id="home-section">
       <h2>Welcome to Cognitio+ Helpdesk</h2>
       <p>Find help, share knowledge, and interact with the community.</p>
@@ -35,28 +40,30 @@
 
     <section id="posts-section" style="display:none;">
       <h2>Posts</h2>
-      <div class="posts-container" id="posts-container">
+      <div class="posts-container" id="posts-container" aria-live="polite">
         <!-- Dynamically loaded posts -->
       </div>
-      <form id="post-form">
+      <form id="post-form" aria-label="Add a new post">
         <label for="post-title">Title</label>
-        <input type="text" id="post-title" name="post-title" required>
+        <input type="text" id="post-title" name="post-title" required aria-required="true">
         <label for="post-body">Body</label>
-        <textarea id="post-body" name="post-body" rows="4" required></textarea>
+        <textarea id="post-body" name="post-body" rows="4" required aria-required="true"></textarea>
         <button type="submit">Add Post</button>
       </form>
+      <div id="posts-loading" class="spinner" style="display:none;" aria-label="Loading posts"></div>
     </section>
 
     <section id="comments-section" style="display:none;">
       <h2>Comments</h2>
-      <div class="comments-container" id="comments-container">
+      <div class="comments-container" id="comments-container" aria-live="polite">
         <!-- Dynamically loaded comments -->
       </div>
-      <form id="comment-form">
+      <form id="comment-form" aria-label="Add a new comment">
         <label for="comment-body">Comment</label>
-        <textarea id="comment-body" name="comment-body" rows="2" required></textarea>
+        <textarea id="comment-body" name="comment-body" rows="2" required aria-required="true"></textarea>
         <button type="submit">Add Comment</button>
       </form>
+      <div id="comments-loading" class="spinner" style="display:none;" aria-label="Loading comments"></div>
     </section>
 
     <section id="about-section" style="display:none;">
@@ -70,8 +77,46 @@
     <p>&copy; 2025 Cognitio+ Helpdesk. All Rights Reserved.</p>
   </footer>
 
+  <!-- Loading Spinner Styling -->
+  <style>
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #a451a9;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      animation: spin 1s linear infinite;
+      margin: 1em auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    nav a:hover, nav a:focus {
+      background: #e6c8f7;
+      color: #7213a7;
+      outline: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+      }
+      .logo {
+        width: 64px;
+      }
+    }
+  </style>
+
+  <!-- Progressive Enhancement: fallback for unsupported Service Worker -->
+  <noscript>
+    <div style="text-align:center;color:red;">JavaScript is required for full helpdesk functionality.</div>
+  </noscript>
+
   <!-- PWA & App Scripts -->
   <script src="script.js"></script>
+  <script src="navigation.js"></script>
   <script>
     // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
@@ -81,6 +126,8 @@
           err => console.error('Service worker registration failed:', err)
         );
       });
+    } else {
+      document.body.insertAdjacentHTML('beforeend', '<div style="text-align:center;color:orange;">Your browser does not support Service Workers. Offline capability may be limited.</div>');
     }
   </script>
 </body>
