@@ -1,142 +1,137 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@400&family=Roboto+Condensed:wght@400&display=swap');
-
 :root {
-  /* Color Palette */
-  --primary-color: #6A0DAD;   /* Royal Purple */
-  --accent-color: #FFD700;   /* Golden Yellow */
-  --background-color: #FFFFFF; /* White */
-  --text-color: #000000;     /* Default Text Color */
-}
-
-/* Base Styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto Condensed', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  --color-primary: #a451a9;
+  --color-accent: #FFB81C;
+  --color-bg: #FFF;
+  --color-text: #222;
+  --color-heading: #202020;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --radius: 4px;
+  --font-sans: 'Montserrat', Arial, sans-serif;
+  --font-heading: 'Oswald', Arial, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-heading: 2rem;
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 2.25rem;
-  color: var(--primary-color);
-}
-
-h2 {
-  font-size: 1.75rem;
-  color: var(--primary-color);
-}
-
-h3 {
-  font-size: 1.5rem;
-  color: var(--primary-color);
-}
-
-/* Subtitles */
-.subtitle {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.25rem;
-  color: var(--primary-color);
-}
-
-/* Paragraphs */
-p {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 1rem;
+body {
+  font-family: var(--font-sans);
   line-height: 1.6;
-  color: var(--text-color);
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
 }
 
-/* Buttons */
-button {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
-/* Primary Button (Royal Purple) */
-.button-primary {
-  background-color: var(--primary-color);
-  color: var(--background-color);
-}
-
-.button-primary:hover {
-  background-color: #5a0099; /* Darker Purple */
-}
-
-/* Accent Button (Golden Yellow) */
-.button-accent {
-  background-color: var(--accent-color);
-  color: var(--background-color);
-}
-
-.button-accent:hover {
-  background-color: #e6c200; /* Lighter Yellow */
-}
-
-/* Links */
 a {
-  color: var(--primary-color);
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+/* Header */
+header {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+header .logo {
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  background: color-mix(in srgb, var(--color-primary) 80%, #000 20%);
+}
+nav a {
+  color: #fff;
+  padding: var(--spacing-md);
   text-decoration: none;
+  border-radius: var(--radius);
+  margin: 0 0.25rem;
+}
+nav a.active,
+nav a:hover,
+nav a:focus {
+  background: var(--color-accent);
+  color: var(--color-text);
+  outline: 2px solid var(--color-accent);
 }
 
-a:hover {
-  text-decoration: underline;
+/* Main content */
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: var(--spacing-md);
 }
 
-/* Sections */
-section {
-  padding: 2rem 0;
+/* Containers */
+.posts-container, .comments-container {
+  margin-top: var(--spacing-md);
+}
+.post, .comment {
+  background: var(--color-bg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius);
 }
 
-/* Cards */
-.card {
-  background-color: var(--background-color);
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+/* Forms */
+form label {
+  display: block;
+  margin: 0.75rem 0 0.25rem 0;
 }
-
-/* Error Message (Golden Yellow) */
-.error-message {
-  background-color: var(--accent-color);
-  color: var(--background-color);
-  padding: 1rem;
-  border-radius: 0.375rem;
-  margin-top: 1rem;
+input[type="text"], textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-md);
+}
+button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+button:hover, button:focus {
+  background: var(--color-accent);
+  color: var(--color-text);
+  outline: 2px solid var(--color-accent);
 }
 
 /* Footer */
 footer {
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  padding: 2rem 0;
   text-align: center;
+  padding: var(--spacing-md);
+  background: #f5f5f5;
+  margin-top: var(--spacing-lg);
+  font-size: 0.9rem;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.75rem;
+@media (max-width: 600px) {
+  main {
+    padding: 0.5rem;
+    max-width: 100%;
   }
-
-  h2 {
-    font-size: 1.25rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
+  nav {
+    flex-direction: column;
   }
 }
